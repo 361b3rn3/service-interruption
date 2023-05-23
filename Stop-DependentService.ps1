@@ -1,10 +1,10 @@
-$serviceName = Read-Host -prompt # Type the Service Name
+$serviceName = Read-Host -prompt  "Type the Service Name"
 
- # Get the process ID
- $id = Get-WmiObject -Class Win32_Service -Filter "Name LIKE '$serviceName'" | Select-Object -ExpandProperty ProcessId
+# Get the process ID
+$id = Get-WmiObject -Class Win32_Service -Filter "Name LIKE '$serviceName'" | Select-Object -ExpandProperty ProcessId
 
 # Define a loop
-while ($id) {Id
+while ($id) {
 
     # Check if the process ID was found
     if ($id) {
