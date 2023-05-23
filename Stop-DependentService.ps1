@@ -1,5 +1,5 @@
 # Get the process ID(s) associated with the service
-$serviceName = ReadHost -prompt "Type Service Name to stop"
+$serviceName = Read-Host -prompt "Type Service Name to stop"
 $serviceProcesses = Get-WmiObject -Class Win32_Service | Where-Object { $_.Name -eq $serviceName } | Get-WmiObject -Class Win32_Process
 
 if ($serviceProcesses) {
