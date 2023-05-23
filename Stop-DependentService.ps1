@@ -1,17 +1,25 @@
-# Get the process ID(s) associated with the service
-$serviceName = Read-Host -prompt "Type Service Name to stop"
-$serviceProcesses = Get-WmiObject -Class Win32_Service | Where-Object { $_.Name -eq $serviceName } | Get-WmiObject -Class Win32_Process
+# Step 1: Get the service ID
+$serviceName = Read-Host -prompt " Type the Service Name"  # Replace with the actual service name
+$service = Get-Service -Name $serviceName
 
-if ($serviceProcesses) {
-    # Kill the process(es) associated with the service
-    foreach ($process in $serviceProcesses) {
-        Stop-Process -Id $process.ProcessId -Force
+if ($service) {
+    $serviceID = $service.Id
+    Write-Host "Service Name: $($service.Name)"
+    Write-Host "Service ID: $serviceID"
+
+    # Step 2: Get the process with the same ID
+    $process = Get-Process -Id $serviceID
+
+    if ($process) {
+        Write-Host "Process Name: $($process.Name)"
+        Write-Host "Process ID: $($process.Id)"
+
+        # Step 3: Kill the process
+        $process | Stop-Process -Force
+        Write-Host "Process with ID '$serviceID' has been killed."
+    } else {
+        Write-Host "Process with ID '$serviceID' not found."
     }
-
-    # Stop the service itself
-    Stop-Service -Name $serviceName -Force
-
-    Write-Host "Service '$serviceName' has been stopped."
 } else {
-    Write-Host "No processes found for service '$serviceName'."
+    Write-Host "Service '$serviceName' not found."
 }
