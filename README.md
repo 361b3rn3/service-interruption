@@ -3,11 +3,11 @@
 
 <!-- NAME -->
 # NAME
-**Template-Project-Implementation** 
+**stop-service-execution** 
 
 <!-- ABSTRACT -->
 ## ABSTRACT 
-Short description
+Terminate dependent service for Windows
 
 <!-- ABOUT THE PROJECT -->
 ## DESCRIPTION
