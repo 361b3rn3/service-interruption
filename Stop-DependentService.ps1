@@ -1,4 +1,4 @@
-$serviceName = Read-Host -prompt  "Type the Service Name"
+$serviceName = Read-Host -prompt  "Type the Service Name e.g NlaSvc"
 
 # Get the process ID
 $id = Get-WmiObject -Class Win32_Service -Filter "Name LIKE '$serviceName'" | Select-Object -ExpandProperty ProcessId
