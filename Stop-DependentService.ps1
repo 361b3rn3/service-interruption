@@ -1,14 +1,11 @@
-# Step 1: Get the service ID
-$serviceName = Read-Host -prompt " Type the Service Name"  # Replace with the actual service name
-$service = Get-Service -Name $serviceName
+# Step 1: Get the process ID for the service
+$serviceName = "WinDefend"  # Replace with the actual service name
+$id = Get-WmiObject -Class Win32_Service -Filter "Name LIKE '$serviceName'" | Select-Object -ExpandProperty ProcessId
 
-if ($service) {
-    $serviceID = $service.Id
-    Write-Host "Service Name: $($service.Name)"
-    Write-Host "Service ID: $serviceID"
-
+# Check if the process ID was found
+if ($id) {
     # Step 2: Get the process with the same ID
-    $process = Get-Process -Id $serviceID
+    $process = Get-Process -Id $id
 
     if ($process) {
         Write-Host "Process Name: $($process.Name)"
@@ -16,9 +13,9 @@ if ($service) {
 
         # Step 3: Kill the process
         $process | Stop-Process -Force
-        Write-Host "Process with ID '$serviceID' has been killed."
+        Write-Host "Process with ID '$id' has been killed."
     } else {
-        Write-Host "Process with ID '$serviceID' not found."
+        Write-Host "Process with ID '$id' not found."
     }
 } else {
     Write-Host "Service '$serviceName' not found."
