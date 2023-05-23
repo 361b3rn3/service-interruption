@@ -1,22 +1,36 @@
-# Step 1: Get the process ID for the service
-$serviceName = "WinDefend"  # Replace with the actual service name
-$id = Get-WmiObject -Class Win32_Service -Filter "Name LIKE '$serviceName'" | Select-Object -ExpandProperty ProcessId
+$serviceName = Read-Host -prompt # Type the Service Name
 
-# Check if the process ID was found
-if ($id) {
-    # Step 2: Get the process with the same ID
-    $process = Get-Process -Id $id
+ # Get the process ID
+ $id = Get-WmiObject -Class Win32_Service -Filter "Name LIKE '$serviceName'" | Select-Object -ExpandProperty ProcessId
 
-    if ($process) {
-        Write-Host "Process Name: $($process.Name)"
-        Write-Host "Process ID: $($process.Id)"
+# Define a loop
+while ($id) {Id
 
-        # Step 3: Kill the process
-        $process | Stop-Process -Force
-        Write-Host "Process with ID '$id' has been killed."
+    # Check if the process ID was found
+    if ($id) {
+        # Step 2: Get the process with the same ID
+        $process = Get-Process -Id $id
+
+        if ($process) {
+            Write-Host "Process Name: $($process.Name)"
+            Write-Host "Process ID: $($process.Id)"
+
+            # Step 3: Kill the process
+            $process | Stop-Process -Force
+            Write-Host "Process with ID '$id' has been killed."
+            
+           # Get the process ID
+           $id = Get-WmiObject -Class Win32_Service -Filter "Name LIKE '$serviceName'" | Select-Object -ExpandProperty Process
+           Write-Host "Process with new ID '$id' to kill."
+        } else {
+            Write-Host "Process with ID '$id' not found."
+            break  # Exit the loop since the process no longer exists
+        }
     } else {
-        Write-Host "Process with ID '$id' not found."
+        Write-Host "Service '$serviceName' not found."
+        break  # Exit the loop since the service was not found
     }
-} else {
-    Write-Host "Service '$serviceName' not found."
+
+    # Add a delay before the next iteration (optional)
+    Start-Sleep -Seconds 5  # Adjust the delay as needed
 }
