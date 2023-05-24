@@ -82,7 +82,7 @@ Get information about
 <!-- LICENSE -->
 ## LICENSE
 
-Distributed under the MIT license. See `LICENSE.txt` for more information.
+Distributed under the Unlicense license. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
