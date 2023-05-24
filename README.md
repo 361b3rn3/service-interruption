@@ -7,11 +7,11 @@
 
 <!-- ABSTRACT -->
 ## ABSTRACT 
-Terminate dependent service for Windows
+Terminate services with dependencies
 
 <!-- ABOUT THE PROJECT -->
 ## DESCRIPTION
-Long description
+You try to kill a service (e.g. NlaSvc) with the normal command line or a cmdlet, but the service is tied to some kind of dependencies preventing you from terminating the service.
 
 * What is it ?
     - Interactive script 
@@ -71,10 +71,9 @@ Get information about
 | :----: | :---: | :--: |
 | In progress | To be decided | To be decided |
 
-- [ ] Windows
-    - [x] Script
-    - [ ] Function
-    - [ ] Interface
+- [ ] Script
+    - [x] Interactive
+    - [ ] Cmdlet
    
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -89,17 +88,16 @@ Distributed under the MIT license. See `LICENSE.txt` for more information.
 
 <!-- ACKNOWLEDGMENTS -->
 ## SEE ALSO
-* [Remove-LocalUser](https://learn.microsoft.com/en-gb/powershell/module/microsoft.powershell.localaccounts/remove-localuser)
-* [Delprof2 – User Profile Deletion Tool](https://helgeklein.com/free-tools/delprof2-user-profile-deletion-tool)
-* [User Profile Deletion Utility (Delprof.exe)](https://www.microsoft.com/en-us/download/details.aspx?id=5405) 
+* [Stop-service](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/stop-service)
+* [Net command on Operating Systems](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/net-commands-on-operating-systems)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 ## ACKNOWLEDGMENTS
-* [Choose an Open Source License](https://choosealicense.com)
-* [README Template](https://github.com/othneildrew/Best-README-Template)
-* [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet)
+* [How do i taskkill a pid that keeps changing](https://stackoverflow.com/questions/31950121/how-do-i-taskkill-a-pid-that-keeps-changing)
+* [Kill a service via the command prompt cmd](https://kb.variphy.com/knowledge-base/windows-kill-a-service-via-the-command-prompt-cmd/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
