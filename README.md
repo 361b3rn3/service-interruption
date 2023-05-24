@@ -14,24 +14,20 @@ Terminate dependent service for Windows
 Long description
 
 * What is it ?
-    - Script to be run once in a while.
-    - Fonction to be added in your code
-    - User Interface to be user friendly
+    - Interactive script 
+    - Cmdlet script
     
 * Who is it for ?
     - IT Support
     - Power User
-    - Bets Tester
-    
+        
  * Why to use it ? 
-    - Clean the Operating Sytem with the unused user profile.
-    - Clean up on 32-bit & 64-bit
-    - Delete account not supported by native Windows tools
+    - Avoid using task manager
+    - Avoid goinng back and forth between Services tab and Detail tab.
     
  * When to use it ?
-    - Whenever it is necessary to make room on the computer.
-    - Remove a corrupted account
-    - For testing purpose
+    - Native PowerShell cmdlet does not work
+    - Regular DOS command line 
     
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
